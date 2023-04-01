@@ -31,12 +31,41 @@
 */
 
 bool task02(int number) {
-	
-	int copyn = number;
-	int digit = number % 10;
-	
+	if (number > 9999 || number < 0)
+	{
+		return false;
+	}
+	bool flag;
+
+	int digit1;
+	int digit2;
+
+	if (number < 10)
+	{
+		return true;
+	}
+	else if (number < 100) {
+		digit1 = number % 10;
+		digit2 = number / 10;
+		flag = digit1 == digit2 ? true : false;
+	}
+	else if (number < 1000)
+	{
+		digit1 = number % 10;
+		digit2 = number / 100;
+		flag = digit1 == digit2 ? true : false;
+	}
+	else {
+		digit1 = number % 10;
+		digit2 = number / 1000;
+		int flag2 = digit1 == digit2 ? 0 : 1;
+		digit1 = (number / 10) % 10;
+		digit2 = (number / 100) % 10;
+		flag = flag2 == 1 ? false : digit1 == digit2 ? true : false;
+	}
 
 
 
-	return true;
+
+	return flag;
 }
