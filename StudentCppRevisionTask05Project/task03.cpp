@@ -36,5 +36,13 @@
 */
 
 int task03(int v, int t) {
-	return 0;
+	if (t < 0)
+	{
+		return -1;
+	}
+	bool s = v < 0 ? true : false;
+	v = s ? -v : v;
+
+
+	return s ? 56 - ((v * t) % 56) : (v * t) % 56;
 }
